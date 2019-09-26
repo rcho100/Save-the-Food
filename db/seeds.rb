@@ -91,3 +91,13 @@ Recipe.create!(
 )
 
 puts "#{Recipe.all.count} recipes created"
+
+#Ingredients
+10.times do
+    Ingredient.create!(
+        name: Faker::Food.ingredient
+        measurements: Faker::Food.measurement
+    )
+end
+
+puts "#{Ingredient.all.count} ingredients created"
