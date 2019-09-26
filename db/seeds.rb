@@ -64,7 +64,7 @@ User.destroy_all
 #Users
 3.times do
   User.create!(
-    name: Faker::Name.name ,
+    name: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password 
   )
@@ -77,7 +77,7 @@ puts "#{User.all.count} users created"
         name: Faker::Food.dish, 
         servings: Faker::Number.number(digits: 1), 
         time: Faker::Number.number(digits: 2), 
-        directions: Faker::Lorem.sentence(word_count: 4))
+        directions: Faker::Lorem.sentence(word_count: 4),
         user_id: 1
     )
   end
@@ -86,7 +86,7 @@ Recipe.create!(
     name: Faker::Food.dish, 
     servings: Faker::Number.number(digits: 1), 
     time: Faker::Number.number(digits: 2), 
-    directions: Faker::Lorem.sentence(word_count: 6))
+    directions: Faker::Lorem.sentence(word_count: 6),
     user_id: 2
 )
 
@@ -95,7 +95,7 @@ puts "#{Recipe.all.count} recipes created"
 #Ingredients
 10.times do
     Ingredient.create!(
-        name: Faker::Food.ingredient
+        name: Faker::Food.ingredient,
         measurements: Faker::Food.measurement
     )
 end
