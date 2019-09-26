@@ -64,7 +64,7 @@ User.destroy_all
 
 #Users
 3.times do
-  User.create!(
+    User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password 
@@ -74,7 +74,7 @@ puts "#{User.all.count} users created"
 
 #Recipes
 2.times do
-    Recipe.create!(
+    Recipe.create!(
         name: Faker::Food.dish, 
         servings: Faker::Number.number(digits: 1), 
         time: Faker::Number.number(digits: 2), 
