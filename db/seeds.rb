@@ -71,3 +71,23 @@ User.destroy_all
 end
 puts "#{User.all.count} users created"
 
+#Recipes
+2.times do
+    Recipe.create!(
+        name: Faker::Food.dish, 
+        servings: Faker::Number.number(digits: 1), 
+        time: Faker::Number.number(digits: 2), 
+        directions: Faker::Lorem.sentence(word_count: 4))
+        user_id: 1
+    )
+  end
+  
+Recipe.create!(
+    name: Faker::Food.dish, 
+    servings: Faker::Number.number(digits: 1), 
+    time: Faker::Number.number(digits: 2), 
+    directions: Faker::Lorem.sentence(word_count: 6))
+    user_id: 2
+)
+
+puts "#{Recipe.all.count} recipes created"
