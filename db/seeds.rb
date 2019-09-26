@@ -57,6 +57,7 @@
 ##############################
 
 Ingredient.destroy_all
+RecipeIngredientList.destroy_all
 Recipe.destroy_all
 Review.destroy_all
 User.destroy_all
@@ -101,3 +102,60 @@ puts "#{Recipe.all.count} recipes created"
 end
 
 puts "#{Ingredient.all.count} ingredients created"
+
+#RecipeIngredientLists
+#recipe_id: 1
+RecipeIngredientList.create!(
+    ingredient_id: 1,
+    recipe_id: 1
+)
+RecipeIngredientList.create!(
+    ingredient_id: 2,
+    recipe_id: 1
+)
+RecipeIngredientList.create!(
+    ingredient_id: 3,
+    recipe_id: 1
+)
+RecipeIngredientList.create!(
+    ingredient_id: 4,
+    recipe_id: 1
+)
+RecipeIngredientList.create!(
+    ingredient_id: 5,
+    recipe_id: 1
+)
+#recipe_id: 2
+RecipeIngredientList.create!(
+    ingredient_id: 5,
+    recipe_id: 2
+)
+RecipeIngredientList.create!(
+    ingredient_id: 7,
+    recipe_id: 2
+)
+RecipeIngredientList.create!(
+    ingredient_id: 2,
+    recipe_id: 2
+)
+RecipeIngredientList.create!(
+    ingredient_id: 10,
+    recipe_id: 2
+)
+#recipe_id: 3
+RecipeIngredientList.create!(
+    ingredient_id: 3,
+    recipe_id: 3
+)
+RecipeIngredientList.create!(
+    ingredient_id: 9,
+    recipe_id: 3
+)
+RecipeIngredientList.create!(
+    ingredient_id: 10,
+    recipe_id: 3
+)
+RecipeIngredientList.create!(
+    ingredient_id: 6,
+    recipe_id: 3
+)
