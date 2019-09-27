@@ -63,99 +63,113 @@ Review.destroy_all
 User.destroy_all
 
 #Users
-3.times do
+3.times do
     User.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password 
-  )
-end
-puts "#{User.all.count} users created"
-
-#Recipes
-2.times do
-    Recipe.create!(
-        name: Faker::Food.dish, 
-        servings: Faker::Number.number(digits: 1), 
-        time: Faker::Number.number(digits: 2), 
-        directions: Faker::Lorem.sentence(word_count: 4),
-        user_id: 1
-    )
-  end
-  
-Recipe.create!(
-    name: Faker::Food.dish, 
-    servings: Faker::Number.number(digits: 1), 
-    time: Faker::Number.number(digits: 2), 
-    directions: Faker::Lorem.sentence(word_count: 6),
-    user_id: 2
-)
-
-puts "#{Recipe.all.count} recipes created"
-
-#Ingredients
-10.times do
-    Ingredient.create!(
-        name: Faker::Food.ingredient,
-        measurements: Faker::Food.measurement
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        password: Faker::Internet.password
     )
 end
 
+@user_1 = User.all[0]
+@user_2 = User.all[1]
+@user_3 = User.all[2]
+
+puts "#{User.all.count} users created"
+
+#Recipes
+Recipe.create!(
+        name: Faker::Food.dish,
+        servings: Faker::Number.digit,
+        time: Faker::Number.between(from: 15, to: 50),
+        directions: Faker::Lorem.sentence,
+        user_id: @user_1.id
+    )
+
+Recipe.create!(
+        name: Faker::Food.dish,
+        servings: Faker::Number.digit,
+        time: Faker::Number.between(from: 15, to: 50),
+        directions: Faker::Lorem.sentence,
+        user_id: @user_1.id
+    )
+
+Recipe.create!(
+        name: Faker::Food.dish,
+        servings: Faker::Number.digit,
+        time: Faker::Number.between(from: 15, to: 50),
+        directions: Faker::Lorem.sentence,
+        user_id: @user_2.id
+    )
+
+recipe_1 = Recipe.all[0]
+recipe_2 = Recipe.all[1]
+recipe_3 = Recipe.all[2]
+
+puts "#{Recipe.all.count} recipes created"
+
+#Ingredients
+10.times do
+    Ingredient.create!(name: Faker::Food.ingredient)
+end
+
 puts "#{Ingredient.all.count} ingredients created"
+
 
 #RecipeIngredientLists
 #recipe_id: 1
 RecipeIngredientList.create!(
     ingredient_id: 1,
-    recipe_id: 1
+    recipe_id: recipe_1.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 2,
-    recipe_id: 1
+    recipe_id: recipe_1.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 3,
-    recipe_id: 1
+    recipe_id: recipe_1.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 4,
-    recipe_id: 1
+    recipe_id: recipe_1.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 5,
-    recipe_id: 1
+    recipe_id: recipe_1.id
 )
 #recipe_id: 2
 RecipeIngredientList.create!(
     ingredient_id: 5,
-    recipe_id: 2
+    recipe_id: recipe_2.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 7,
-    recipe_id: 2
+    recipe_id: recipe_2.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 2,
-    recipe_id: 2
+    recipe_id: recipe_2.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 10,
-    recipe_id: 2
+    recipe_id: recipe_2.id
 )
 #recipe_id: 3
 RecipeIngredientList.create!(
     ingredient_id: 3,
-    recipe_id: 3
+    recipe_id: recipe_3.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 9,
-    recipe_id: 3
+    recipe_id: recipe_3.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 10,
-    recipe_id: 3
+    recipe_id: recipe_3.id
 )
 RecipeIngredientList.create!(
     ingredient_id: 6,
-    recipe_id: 3
+    recipe_id: recipe_3.id
 )
+puts "#{RecipeIngredientList.all.count} recipe_ingredient_list created"
