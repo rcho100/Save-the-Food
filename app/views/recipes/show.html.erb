@@ -1,0 +1,23 @@
+<h1><%= @recipe.name %></h1>
+
+<div>
+  <p>Servings: <%= @recipe.servings %></p>
+</div>
+
+<div>
+  <p>Time Needed: <%= @recipe.time %> minutes</p>
+</div>
+
+<div>
+  <p>Ingredients:</p>
+  <% @recipe.ingredients.each do |ing| %>
+    <ul>
+      <%= ing.name %>
+    </ul>
+  <% end %>  
+</div>
+
+<div>
+  <p>Directions:</p>
+  <%= @recipe.directions %>
+</div>
