@@ -17,6 +17,13 @@
   </div>
   <br>
   <div>
+    <p>
+      Check the ingredients needed:
+    </p>
+    <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) %>
+  </div>
+  <br>
+  <div>
     <%= f.label :directions %>
     <%= f.text_area :directions %>
   </div>
