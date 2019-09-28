@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
     else
       render 'edit'
     end
-  end
+  end 
  
 
   private
