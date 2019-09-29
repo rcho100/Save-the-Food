@@ -31,6 +31,7 @@
 
 <% @recipe.reviews.each do |rev| %>
   <div>
+    <p><%= rev.user.name %></p>
     <p>Number of Stars: <%= rev.rating %></p>
     <p><%= rev.content %></p>
   </div><br>
