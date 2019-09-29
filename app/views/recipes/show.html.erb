@@ -28,3 +28,10 @@
 <div>
   <%= link_to "Delete this recipe", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" } %>
 </div>
+
+<% @recipe.reviews.each do |rev| %>
+  <div>
+    <p>Number of Stars: <%= rev.rating %></p>
+    <p><%= rev.content %></p>
+  </div><br>
+<% end %>
