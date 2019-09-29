@@ -28,6 +28,11 @@ class RecipesController < ApplicationController
       render 'edit'
     end
   end 
+
+  def destroy
+    Recipe.find_by_id(params[:id]).destroy
+    redirect_to root_path
+  end
  
 
   private
