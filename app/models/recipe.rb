@@ -4,4 +4,5 @@ class Recipe < ApplicationRecord
   has_many :users, through: :reviews
   has_many :recipe_ingredient_lists
   has_many :ingredients, through: :recipe_ingredient_lists
+  accepts_nested_attributes_for :ingredients 
 end
