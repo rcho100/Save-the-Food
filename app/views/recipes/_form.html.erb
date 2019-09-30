@@ -19,6 +19,11 @@
         Check the ingredients needed:
       </p>
       <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) %>
+      <p>If you do not see an ingredient you want to select, add the ingredient(s) below:</p>
+      <%= f.fields_for :ingredients do |ing_fields| %>
+        <%= ing_fields.label :name, "Ingredient" %>
+        <%= ing_fields.text_field :name %>
+      <% end %>
     </div>
     <br>
     <div>
