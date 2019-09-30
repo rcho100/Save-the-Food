@@ -3,9 +3,10 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
   end
-  
+
   def new
     @recipe = Recipe.new
+    5.times {@recipe.ingredients.build}
   end
 
   def create
