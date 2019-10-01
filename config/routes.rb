@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
 
-  resources :reviews
   resources :ingredients
   resources :recipes
-  resources :users, only: [:create, :edit, :show, :update]
+  resources :users, only: [:create, :edit, :show, :update] do
+    resources :reviews
+  end
+  resources :reviews
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
