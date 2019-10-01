@@ -11,4 +11,10 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new(recipe_id: params[:recipe_id])
   end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:name, :content, :recipe_id)
+  end
 end
