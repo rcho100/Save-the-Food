@@ -5,4 +5,6 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredient_lists
   has_many :ingredients, through: :recipe_ingredient_lists
   accepts_nested_attributes_for :ingredients 
+
+  scope :top_three, -> { joins(:reviews).group(:id).order(rating: :desc).limit(3) }
 end
