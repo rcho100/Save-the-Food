@@ -12,6 +12,15 @@ class ReviewsController < ApplicationController
     @review = Review.new(recipe_id: params[:recipe_id])
   end
 
+  def create
+    @review = Review.new(review_params)
+    if @review.save
+      redirect_to recipe_path(@review.recipe_id)
+    else
+      render 'new'
+    end
+  end
+
   private
 
   def review_params
