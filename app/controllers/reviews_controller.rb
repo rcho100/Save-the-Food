@@ -7,4 +7,8 @@ class ReviewsController < ApplicationController
       @reviews = Review.all
     end
   end
+
+  def new
+    @review = Review.new(recipe_id: params[:recipe_id])
+  end
 end
