@@ -3,7 +3,7 @@
 <% @reviews.each do |rev| %>
   <div>
     <p><%= link_to rev.recipe.name, recipe_path(rev.recipe) %></p>
-    <p><%= link_to rev.user.name, user_path(rev.user) %> - Rating: <%= rev.rating %> stars</p>
+    <p><%= link_to rev.user.name, user_path(rev.user) %> gives this recipe: <%= rev.rating %> <%= 'star'.pluralize(rev.rating) %></p>
     <p><%= rev.content %></p>
   </div><br>
 <% end %>
