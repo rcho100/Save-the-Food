@@ -39,6 +39,10 @@ class RecipesController < ApplicationController
     Recipe.find_by_id(params[:id]).destroy
     redirect_to root_path
   end
+
+  def top_three
+    @recipes = Recipe.top_three
+  end
  
 
   private
