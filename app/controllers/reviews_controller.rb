@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new(recipe_id: params[:recipe_id])
+    @review = Review.new(recipe_id: params[:recipe_id], user_id: current_user.id)
   end
 
   def create
@@ -24,6 +24,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:name, :content, :recipe_id)
+    params.require(:review).permit(:name, :content, :recipe_id, :user_id)
   end
 end
