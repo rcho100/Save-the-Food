@@ -1,0 +1,9 @@
+<h1>Reviews</h1>
+
+<% @reviews.each do |rev| %>
+  <div>
+    <p><%= rev.recipe.name %></p>
+    <p><%= rev.user.name %> - Rating: <%= rev.rating %> stars</p>
+    <p><%= rev.content %></p>
+  </div><br>
+<% end %>
