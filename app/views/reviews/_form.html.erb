@@ -1,5 +1,6 @@
 <%= form_for(@review) do |f| %>
   <%= f.hidden_field :recipe_id %>
+  <%= f.hidden_field :user_id %>
   <div>
     <%= f.label :rating %>
     <%= f.number_field :rating %>
