@@ -2,8 +2,8 @@
 
 <% @reviews.each do |rev| %>
   <div>
-    <p><%= rev.recipe.name %></p>
-    <p><%= rev.user.name %> - Rating: <%= rev.rating %> stars</p>
+    <p><%= link_to rev.recipe.name, recipe_path(rev.recipe) %></p>
+    <p><%= link_to rev.user.name, user_path(rev.user) %> - Rating: <%= rev.rating %> stars</p>
     <p><%= rev.content %></p>
   </div><br>
 <% end %>
