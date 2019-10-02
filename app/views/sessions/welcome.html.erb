@@ -1,8 +1,10 @@
 <h1>Welcome to Save the Food!</h1>
 <h2>Meal Preppers Assemble!</h2>
 
-<p>
-  <%= link_to "Login", login_path %>
-  or
-  <%= link_to "Sign up", signup_path %>
-</p>
+<% if !logged_in? %>
+  <p>
+    <%= link_to "Login", login_path %>
+    or
+    <%= link_to "Sign up", signup_path %>
+  </p>
+<% end %>
