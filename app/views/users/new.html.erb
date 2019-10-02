@@ -1,3 +1,19 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-primary" role="alert">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %>
+      prevented you from signing up:
+    </h2>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <h1>Sign up!</h1>
 
 <%= form_for(@user) do |f| %>
