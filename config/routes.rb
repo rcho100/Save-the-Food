@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
-  get '/top_three_recipes', to: 'recipes#top_three'
+  get 'recipes/top_three', to: 'recipes#top_three'
 
   resources :ingredients
   resources :recipes do
