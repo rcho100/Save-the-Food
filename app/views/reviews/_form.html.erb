@@ -1,3 +1,19 @@
+<% if @review.errors.any? %>
+  <div class="alert alert-primary" role="alert">
+    <h2>
+      <%= pluralize(@review.errors.count, "error") %>
+      prohibited this review from being saved:
+    </h2>
+ 
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for(@review) do |f| %>
   <%= f.hidden_field :recipe_id %>
   <%= f.hidden_field :user_id %>
