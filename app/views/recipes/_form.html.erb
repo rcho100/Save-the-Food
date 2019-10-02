@@ -1,3 +1,21 @@
+<% if @recipe.errors.any? %>
+  <div class="alert alert-primary" role="alert">
+    <h2>
+      <%= pluralize(@recipe.errors.count, "error") %>
+      prohibited this recipe from being saved:
+    </h2>
+ 
+    <ul>
+    <% @recipe.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+
 <%= form_for(@recipe) do |f| %>
     <div>
       <%= f.label :name %>
