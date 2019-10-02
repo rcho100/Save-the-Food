@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :reviewed_recipes, through: :reviews, source: :recipe
   has_secure_password
 
-  validates :name, format: { without: /[0-9]/, message: "does not allow numbers" }
-  validates :email, uniqueness: true
+  validates :name, :email, uniqueness: true
+  validates :name, :email, presence: true
+
 end
