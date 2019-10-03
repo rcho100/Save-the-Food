@@ -1,15 +1,17 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :success, :info
+
   def current_user
     current_user ||= User.find_by_id(session[:user_id])
   end
 
   def logged_in?
-    !!current_user
+    !!session[:user_id].present?
   end
 
   def require_login
-    unless session[:user_id].present?
-      render 'sessions/new'
+    unless logged_in?
+      redirect_to login_path, info: 'You need to be logged in to access that page.'
     end
   end
 end
