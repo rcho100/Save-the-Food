@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   get 'recipes/top_three', to: 'recipes#top_three'
+  
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
   resources :ingredients
   resources :recipes do
