@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_path, info: 'You need to be logged in to access that page.'
     end
   end
+
+  def require_not_login
+    unless !logged_in?
+      redirect_to recipes_path, info: 'You are already logged in.'
+    end
+  end
 end
