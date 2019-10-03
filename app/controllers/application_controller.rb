@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  def require_login
+    unless session[:user_id].present?
+      render 'sessions/new'
+    end
+  end
 end
