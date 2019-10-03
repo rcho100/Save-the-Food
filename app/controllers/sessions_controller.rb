@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       user.authenticate(params[:password])
 
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to user_path(user), success: 'You are now logged in'
     else
       redirect_to root_path
     end
