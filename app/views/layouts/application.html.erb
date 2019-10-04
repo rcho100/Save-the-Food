@@ -19,9 +19,17 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <%= link_to "Recipes", recipes_path, class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Recipes
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "All Recipes", recipes_path, class: "dropdown-item" %>
+              <%= link_to "Add a Recipe", new_recipe_path, class: "dropdown-item" %>
+            </div>
           </li>
+
+
           <% if logged_in? %>
             <li class="nav-item">
               <%= link_to "Your Profile", user_path(current_user.id), class: "nav-link" %>
