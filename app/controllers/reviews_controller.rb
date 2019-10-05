@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :require_login
-  before_action :personal_access
-  skip_before_action :personal_access, only: [:index, :new, :create]
   
   def index
     if params[:user_id]
