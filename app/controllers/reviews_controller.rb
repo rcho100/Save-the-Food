@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Recipe.find_by_id(params[:id])
+    @review = Review.find_by_id(params[:id])
   end
 
   def update
