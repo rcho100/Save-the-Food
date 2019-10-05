@@ -1,29 +1,5 @@
-<h1><%= @recipe.name %></h1>
+<%= render partial: 'recipe', locals: {recipe: @recipe} %>
 
-<p>By: <%= link_to recipe_creator.name, user_path(recipe_creator) %></p>
-
-<div>
-  <p>Servings: <%= @recipe.servings %></p>
-</div>
-
-<div>
-  <p>Time Needed: <%= @recipe.time %> minutes</p>
-</div>
-
-<div>
-  <p>Ingredients:</p>
-  <% @recipe.ingredients.each do |ing| %>
-    <ul>
-      <%= ing.name %>
-    </ul>
-  <% end %>  
-</div>
-
-<div>
-  <p>Directions:</p>
-  <%= @recipe.directions %>
-</div>
-<br>
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %>
 </div>
