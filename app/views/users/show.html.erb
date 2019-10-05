@@ -16,10 +16,10 @@
 
 <h4>Recipes Reviewed by <%= @user.name %></h4>
 
-<% if @user.reviewed_recipes.present? %>
+<% if @user.reviews.present? %>
   <ul>
-    <% @user.reviewed_recipes.each do |rev_rec| %>
-      <li><%= link_to rev_rec.name, recipe_path(rev_rec) %></li>
+    <% @user.reviews.each do |review| %>
+      <li><%= link_to review.recipe.name, review_path(review) %></li>
     <% end %>
   </ul>
 <% else %>
