@@ -16,5 +16,17 @@
 @import "bootstrap";
 
 body {
-    padding-top: 5em
+    padding-top: 5em;
+}
+
+h1 {
+    margin: 0em 0em 1em;
+}
+
+#welcome-headings {
+    text-align: center;
+}
+
+#about-description {
+    margin: auto 10em;
 }
