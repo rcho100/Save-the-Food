@@ -27,6 +27,15 @@ class ReviewsController < ApplicationController
     @review = Recipe.find_by_id(params[:id])
   end
 
+  def update
+    @review = Review.find_by_id(params[:id])
+    if @review.update(review_params)
+      redirect_to review_path(@review)
+    else
+      render 'edit'
+    end
+  end
+  
   private
 
   def review_params
