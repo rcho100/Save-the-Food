@@ -1,3 +1,5 @@
-<h1>Write your review</h1>
+<%= render partial: 'recipes/recipe', locals: {recipe: @review.recipe} %>
+
+<h4>Write your review</h4>
 
 <%= render partial: 'form', locals: {review: @review} %>
