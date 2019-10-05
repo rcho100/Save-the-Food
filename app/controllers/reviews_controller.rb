@@ -51,8 +51,8 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :content, :recipe_id, :user_id)
   end
 
-  def personal_access
-    unless current_user.id == @review.user.id
+  def personal_access(id)
+    unless current_user.id == id
       redirect_to user_path(current_user), info: 'You can only access & modify your reviews'
     end
   end
