@@ -1,12 +1,12 @@
-<% if @recipe.errors.any? %>
+<% if recipe.errors.any? %>
   <div class="alert alert-primary" role="alert">
     <h2>
-      <%= pluralize(@recipe.errors.count, "error") %>
+      <%= pluralize(recipe.errors.count, "error") %>
       prevented this recipe from being saved:
     </h2>
  
     <ul>
-    <% @recipe.errors.full_messages.each do |msg| %>
+    <% recipe.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -16,7 +16,7 @@
 
 
 
-<%= form_for(@recipe) do |f| %>
+<%= form_for(recipe) do |f| %>
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
