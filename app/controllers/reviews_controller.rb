@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :require_login
+  before_action :personal_access
+  skip_before_action :personal_access, only: [:index, :new, :create]
   
   def index
     if params[:user_id]
@@ -44,5 +46,11 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :content, :recipe_id, :user_id)
+  end
+
+  def personal_access
+    unless current_user.id == @review.user.id
+      redirect_to user_path(current_user), info: 'You can only access & modify your reviews'
+    end
   end
 end
