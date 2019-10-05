@@ -31,7 +31,6 @@ class ReviewsController < ApplicationController
   
   def show
     @review = Review.find_by_id(params[:id])
-    personal_access(@review.user_id)
   end
 
   def destroy
