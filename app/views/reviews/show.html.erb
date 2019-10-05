@@ -1,4 +1,4 @@
-<!-- recipe info will be displayed her -->
+<%= render partial: 'recipes/recipe', locals: {recipe: @review.recipe} %>
 
 <p><%= @review.user.name %> gives this recipe <%= pluralize(@review.rating, "star") %></p>
 <p></p>

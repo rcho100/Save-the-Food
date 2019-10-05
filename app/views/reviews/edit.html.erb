@@ -1,3 +1,5 @@
+<%= render partial: 'recipes/recipe', locals: {recipe: @review.recipe} %>
+
 <h1>Edit your review for <%= @review.recipe.name %></h1>
 
 <%= render partial: 'form', locals: {review: @review} %>
