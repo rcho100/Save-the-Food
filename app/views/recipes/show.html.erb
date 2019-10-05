@@ -2,7 +2,7 @@
 
 <%= render partial: 'recipe', locals: {recipe: @recipe} %>
 
-<% if @recipe.user.id == current_user.id %>
+<% if @recipe.user == current_user %>
   <div>
     <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %>
   </div>
