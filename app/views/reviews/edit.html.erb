@@ -1,7 +1,5 @@
 <%= render partial: 'recipes/recipe', locals: {recipe: @review.recipe} %>
 
-<h1>Edit your review for <%= @review.recipe.name %></h1>
+<h4>Edit your review for <%= link_to @review.recipe.name, recipe_path(@review.recipe) %></h4>
 
 <%= render partial: 'form', locals: {review: @review} %>
-
-### need to add link to show page in the h1
