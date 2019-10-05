@@ -1,4 +1,4 @@
-<h1><%= @review.recipe.name %></h1>
+<h1><%= link_to @review.recipe.name, recipe_path(@review.recipe) %></h1>
 
 <%= render partial: 'recipes/recipe', locals: {recipe: @review.recipe} %>
 
