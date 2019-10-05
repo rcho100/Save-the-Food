@@ -25,10 +25,12 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find_by_id(params[:id])
+    personal_access(@review.user_id)
   end
 
   def update
     @review = Review.find_by_id(params[:id])
+    personal_access(@review.user_id)
     if @review.update(review_params)
       redirect_to review_path(@review)
     else
@@ -38,10 +40,13 @@ class ReviewsController < ApplicationController
   
   def show
     @review = Review.find_by_id(params[:id])
+    personal_access(@review.user_id)
   end
 
   def destroy
-    Review.find_by_id(params[:id]).destroy
+    @review = Review.find_by_id(params[:id])
+    personal_access(@review.user_id)
+    @review.destroy
     redirect_to root_path
   end
 
