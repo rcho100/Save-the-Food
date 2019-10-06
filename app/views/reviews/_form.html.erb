@@ -18,12 +18,12 @@
   <%= f.hidden_field :recipe_id %>
   <%= f.hidden_field :user_id %>
   <div>
-    <%= f.label :rating %>
+    <%= f.label "Rating out of 5 stars" %><br>
     <%= f.number_field :rating %>
   </div><br>
   <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.label :content %><br>
+    <%= f.text_area :content, cols: 60, rows: 6 %>
   </div><br>
   <div>
     <%= f.submit %>
