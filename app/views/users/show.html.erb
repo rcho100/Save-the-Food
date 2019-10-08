@@ -19,7 +19,7 @@
 <% if @user.reviews.present? %>
   <ul>
     <% @user.reviews.each do |review| %>
-      <li><%= link_to review.recipe.name, user_review_path(review) %></li>
+      <li><%= link_to review.recipe.name, user_review_path(review.user, review) %></li>
     <% end %>
   </ul>
 <% else %>
