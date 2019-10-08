@@ -15,6 +15,4 @@ class Recipe < ApplicationRecord
       self.ingredients << Ingredient.find_or_create_by(value) if value['name'].present?
     end
   end
-
-  scope :top_three, -> { joins(:reviews).group(:id).order(rating: :desc).limit(3) }
 end
