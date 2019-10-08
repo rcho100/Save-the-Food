@@ -63,7 +63,7 @@ Review.destroy_all
 User.destroy_all
 
 #Users
-3.times do
+4.times do
     User.create!(
         name: Faker::Name.name,
         email: Faker::Internet.email,
@@ -74,6 +74,7 @@ end
 @user_1 = User.all[0]
 @user_2 = User.all[1]
 @user_3 = User.all[2]
+@user_4 = User.all[3]
 
 puts "#{User.all.count} users created"
 
@@ -81,7 +82,7 @@ puts "#{User.all.count} users created"
 Recipe.create!(
         name: Faker::Food.dish,
         servings: Faker::Number.digit,
-        time: Faker::Number.between(from: 15, to: 50),
+        time: Faker::Number.between(from: 10, to: 50),
         directions: Faker::Lorem.sentence,
         user_id: @user_1.id
     )
@@ -89,7 +90,7 @@ Recipe.create!(
 Recipe.create!(
         name: Faker::Food.dish,
         servings: Faker::Number.digit,
-        time: Faker::Number.between(from: 15, to: 50),
+        time: Faker::Number.between(from: 10, to: 50),
         directions: Faker::Lorem.sentence,
         user_id: @user_1.id
     )
@@ -97,14 +98,40 @@ Recipe.create!(
 Recipe.create!(
         name: Faker::Food.dish,
         servings: Faker::Number.digit,
-        time: Faker::Number.between(from: 15, to: 50),
+        time: Faker::Number.between(from: 10, to: 50),
         directions: Faker::Lorem.sentence,
         user_id: @user_2.id
+    )
+
+Recipe.create!(
+        name: Faker::Food.dish,
+        servings: Faker::Number.digit,
+        time: Faker::Number.between(from: 10, to: 50),
+        directions: Faker::Lorem.sentence,
+        user_id: @user_3.id
+    )
+
+Recipe.create!(
+        name: Faker::Food.dish,
+        servings: Faker::Number.digit,
+        time: Faker::Number.between(from: 10, to: 50),
+        directions: Faker::Lorem.sentence,
+        user_id: @user_3.id
+    )
+Recipe.create!(
+        name: Faker::Food.dish,
+        servings: Faker::Number.digit,
+        time: Faker::Number.between(from: 10, to: 50),
+        directions: Faker::Lorem.sentence,
+        user_id: @user_4.id
     )
 
 recipe_1 = Recipe.all[0]
 recipe_2 = Recipe.all[1]
 recipe_3 = Recipe.all[2]
+recipe_4 = Recipe.all[3]
+recipe_5 = Recipe.all[4]
+recipe_6 = Recipe.all[5]
 
 puts "#{Recipe.all.count} recipes created"
 
@@ -174,17 +201,6 @@ RecipeIngredientList.create!(
 )
 puts "#{RecipeIngredientList.all.count} recipe_ingredient_list created"
 
-#   create_table "reviews", force: :cascade do |t|
-#     t.string "name"
-#     t.integer "rating"
-#     t.text "content"
-#     t.integer "user_id"
-#     t.integer "recipe_id"
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
-#     t.index ["user_id"], name: "index_reviews_on_user_id"
-#   end
 
 #Reviews
 Review.create!(
@@ -222,5 +238,23 @@ Review.create!(
     content: Faker::Lorem.sentence,
     user_id: @user_3.id,
     recipe_id: recipe_3.id
+)
+Review.create!(
+    rating: Faker::Number.between(from: 1, to: 5),
+    content: Faker::Lorem.sentence,
+    user_id: @user_4.id,
+    recipe_id: recipe_1.id
+)
+Review.create!(
+    rating: Faker::Number.between(from: 1, to: 5),
+    content: Faker::Lorem.sentence,
+    user_id: @user_2.id,
+    recipe_id: recipe_5.id
+)
+Review.create!(
+    rating: Faker::Number.between(from: 1, to: 5),
+    content: Faker::Lorem.sentence,
+    user_id: @user_1.id,
+    recipe_id: recipe_5.id
 )
 puts "#{Review.all.count} reviews created"
