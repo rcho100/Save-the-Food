@@ -43,6 +43,10 @@ class RecipesController < ApplicationController
     redirect_to root_path
   end
 
+  def under_thirty
+    @recipes = Recipe.under_thirty
+  end
+
   private
 
   def recipe_params
