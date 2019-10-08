@@ -1,7 +1,7 @@
 <%= render 'layouts/flash_messages' %>
 
 <h1>All the recipes for your viewing pleasure!</h1>
-<p><%= link_to "Our Top 3 Recipes", recipes_top_three_path %></p>
+<p><%= link_to "Recipes that take under 30 minutes!", recipes_under_thirty_path %></p>
 <p>All Recipes:</p>
 <% @recipes.each do |rec| %>
   <p><%= link_to rec.name, recipe_path(rec) %></p>
