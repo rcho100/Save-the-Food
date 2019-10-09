@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :require_login
 
+  def index
+    @user = User.find_by_id(params[:user_id])
+    @reviews = Review.three_stars(params[:user_id])
+  end
+
   def new
     @review = Review.new(recipe_id: params[:recipe_id], user_id: current_user.id)
   end
