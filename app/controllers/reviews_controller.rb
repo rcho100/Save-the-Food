@@ -10,6 +10,10 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @recipe = Recipe.find_by_id(params[:recipe_id])
+    unless @recipe.present?
+      redirect_to recipes_path, info: 'That recipe does not exist'
+    end
     @review = Review.new(recipe_id: params[:recipe_id], user_id: current_user.id)
   end
 
