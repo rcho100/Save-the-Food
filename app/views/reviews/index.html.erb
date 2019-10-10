@@ -1,0 +1,13 @@
+<h1><%= @user.name %>'s top recipes</h1>
+
+<% if @reviews.present? %>
+
+<% @reviews.each do |rev| %>
+  <p><%= link_to rev.recipe.name, recipe_path(rev.recipe) %></p>
+  <p>Number of Stars: <%= rev.rating %></p>
+  <p><%= rev.content %></p>
+<% end %>
+
+<% else %>
+  <p>No top recipes for <%= @user.name %> at the moment!</p>
+<% end %>
