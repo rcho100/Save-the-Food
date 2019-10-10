@@ -17,6 +17,9 @@
 <h4>Recipes Reviewed by <%= @user.name %></h4>
 
 <% if @user.reviews.present? %>
+  <p><%= @user.name %>'s <%= link_to "Top Reviews", user_reviews_path(@user) %></p>
+
+  <p>All <%= @user.name %>'s reviews</p>
   <ul>
     <% @user.reviews.each do |review| %>
       <li><%= link_to review.recipe.name, user_review_path(review.user, review) %></li>
