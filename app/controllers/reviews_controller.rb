@@ -3,6 +3,9 @@ class ReviewsController < ApplicationController
 
   def index
     @user = User.find_by_id(params[:user_id])
+    unless @user.present?
+      redirect_to recipes_path, info: 'That user does not exist'
+    end
     @reviews = Review.three_stars(params[:user_id])
   end
 
