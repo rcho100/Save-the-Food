@@ -27,10 +27,13 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find_by_id(params[:id])
+    personal_access(@recipe.user_id)
   end
 
   def update
     @recipe = Recipe.find_by_id(params[:id])
+    personal_access(@recipe.user_id)
+
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe)
     else
@@ -53,4 +56,9 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :servings, :time, :directions, ingredient_ids: [], ingredients_attributes: [:name])
   end
 
+  def personal_access(id)
+    unless current_user.id == id
+      redirect_to user_path(current_user), info: 'You can only edit your recipes'
+    end
+  end
 end
