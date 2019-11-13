@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :require_login
-  skip_before_action :require_login, only: [:index, :show, :top_three]
+  skip_before_action :require_login, only: [:index, :show, :under_thirty]
   
   def index
     @recipes = Recipe.all
