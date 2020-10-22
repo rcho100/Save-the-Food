@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_204303) do
+ActiveRecord::Schema.define(version: 2019_09_26_175604) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_09_29_204303) do
   end
 
   create_table "recipe_ingredient_lists", force: :cascade do |t|
-    t.integer "ingredient_id"
-    t.integer "recipe_id"
+    t.bigint "ingredient_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ingredient_id"], name: "index_recipe_ingredient_lists_on_ingredient_id"
@@ -34,15 +37,15 @@ ActiveRecord::Schema.define(version: 2019_09_29_204303) do
     t.text "directions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content"
-    t.integer "user_id"
-    t.integer "recipe_id"
+    t.bigint "user_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
@@ -57,4 +60,9 @@ ActiveRecord::Schema.define(version: 2019_09_29_204303) do
     t.string "email"
   end
 
+  add_foreign_key "recipe_ingredient_lists", "ingredients"
+  add_foreign_key "recipe_ingredient_lists", "recipes"
+  add_foreign_key "recipes", "users"
+  add_foreign_key "reviews", "recipes"
+  add_foreign_key "reviews", "users"
 end
