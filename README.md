@@ -5,6 +5,8 @@ Although a lot of the recipes are geared toward meals that can be saved to take 
 any kind of recipe you wish. You also have the option of rating and reviewing any of the recipes you see. 
 Hope you enjoy, bon appétit!
 
+Visit the live site -> https://save-the-food.herokuapp.com
+
 ## Installation
 
 1. Clone the this(git@github.com:rcho100/Save-the-Food.git) repo onto your computer.
